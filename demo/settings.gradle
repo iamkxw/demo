@@ -1,0 +1,8 @@
+rootProject.name = 'demo'
+include 'common'
+include 'data'
+include 'model'
+include 'external-service'
+include 'common-service'
+include 'biz-service'
+include 'biz-web'

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/biz-service/biz-service.iml" filepath="$PROJECT_DIR$/.idea/modules/biz-service/biz-service.iml" group="biz-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/biz-service/biz-service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/biz-service/biz-service_main.iml" group="biz-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/biz-service/biz-service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/biz-service/biz-service_test.iml" group="biz-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/biz-web/biz-web.iml" filepath="$PROJECT_DIR$/.idea/modules/biz-web/biz-web.iml" group="biz-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/biz-web/biz-web_main.iml" filepath="$PROJECT_DIR$/.idea/modules/biz-web/biz-web_main.iml" group="biz-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/biz-web/biz-web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/biz-web/biz-web_test.iml" group="biz-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/common.iml" filepath="$PROJECT_DIR$/.idea/modules/common/common.iml" group="common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common-service/common-service.iml" filepath="$PROJECT_DIR$/.idea/modules/common-service/common-service.iml" group="common-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common-service/common-service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/common-service/common-service_main.iml" group="common-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common-service/common-service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/common-service/common-service_test.iml" group="common-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/common_main.iml" filepath="$PROJECT_DIR$/.idea/modules/common/common_main.iml" group="common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/common_test.iml" filepath="$PROJECT_DIR$/.idea/modules/common/common_test.iml" group="common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/data.iml" group="data" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/data_main.iml" filepath="$PROJECT_DIR$/.idea/modules/data/data_main.iml" group="data" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/data_test.iml" filepath="$PROJECT_DIR$/.idea/modules/data/data_test.iml" group="data" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo.iml" filepath="$PROJECT_DIR$/.idea/modules/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo_main.iml" filepath="$PROJECT_DIR$/.idea/modules/demo_main.iml" group="demo" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo_test.iml" filepath="$PROJECT_DIR$/.idea/modules/demo_test.iml" group="demo" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/external-service/external-service.iml" filepath="$PROJECT_DIR$/.idea/modules/external-service/external-service.iml" group="external-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/external-service/external-service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/external-service/external-service_main.iml" group="external-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/external-service/external-service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/external-service/external-service_test.iml" group="external-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/model/model.iml" filepath="$PROJECT_DIR$/.idea/modules/model/model.iml" group="model" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/model/model_main.iml" filepath="$PROJECT_DIR$/.idea/modules/model/model_main.iml" group="model" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/model/model_test.iml" filepath="$PROJECT_DIR$/.idea/modules/model/model_test.iml" group="model" />
+    </modules>
+  </component>
+</project>

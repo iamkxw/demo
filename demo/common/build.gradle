@@ -1,0 +1,23 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-devtools")
+    compile("org.springframework.boot:spring-boot-starter")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.springframework.boot:spring-boot-starter-logging")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-starter-aop")
+    compile("org.springframework.boot:spring-boot-starter-test")
+
+    compile('javax.validation:validation-api:1.1.0.Final')
+    compile('org.aspectj:aspectjweaver:1.8.9')
+    compile("com.fasterxml.jackson.core:jackson-databind:2.8.4")
+
+    compile("org.apache.commons:commons-lang3:3.4")
+    compile('org.slf4j:slf4j-api:1.7.21')
+
+    compile("com.foxinmy:weixin4j-mp:1.7.3")
+    compile("org.jsoup:jsoup:1.9.2")
+    compile group: 'com.google.guava', name: 'guava', version: '21.0-rc2'
+}

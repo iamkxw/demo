@@ -1,0 +1,13 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    compile project(':model')
+
+    compile("org.apache.httpcomponents:httpclient:4.5.2")
+    compile("com.aliyun:aliyun-java-sdk-core:3.0.8")
+    compile("com.aliyun.oss:aliyun-sdk-oss:2.3.0")
+    compile("com.aliyun:aliyun-java-sdk-dm:3.0.0-rc2")
+    compile("com.aliyun:aliyun-java-sdk-sms:3.0.0-rc1")
+    compile files('./lib/alipay-sdk-java20161025220101.jar')
+    compile("com.foxinmy:weixin4j-mp:1.7.3")
+}

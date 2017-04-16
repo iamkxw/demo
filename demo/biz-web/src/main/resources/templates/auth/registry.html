@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>美颜社分销|注册页面</title>
+    <object th:replace="web/common/head/adminCommonHead"></object>
+</head>
+<body ng-app="app" ng-controller="ctrl">
+
+<p><span>电话：</span><input type="text" ng-model="user.account.phone" name="phone"/></p>
+<p><span>密码：</span><input type="text" ng-model="user.account.password" name="password"/></p>
+<p><span>请再次输入密码：</span><input id="rePassword" name="rePassword"/></p>
+<p><input type="radio" name="accountType" value="agent" ng-model="user.type"/><span>我是代理商</span></p>
+<p><input type="radio" name="accountType" value="vendor" ng-model="user.type"/><span>我是供应商</span></p>
+<div ng-switch="user.type">
+    <div ng-switch-when="agent">
+        <p><span>姓名：</span><input type="text" name="agentName" ng-model="user.agent.name"/></p>
+        <p><span>身份证号：</span><input type="text" name="pid" ng-model="user.agent.pid"/></p>
+    </div>
+    <div ng-switch-when="vendor">
+        <p><span>公司名称：</span><input type="text" name="vendorName" ng-model="user.vendor.name"/></p>
+        <p><span>简介：</span><input type="text" name="desc" ng-model="user.vendor.desc"/></p>
+    </div>
+</div>
+<p><span ng-click="submit()">提交</span></p>
+<p ng-bind="alterInfo"></p>
+<!--toast-->
+<object th:replace="mobile/common/weToast"></object>
+</body>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    /*]]>*/
+</script>
+<script src="/statics/js/auth/registry.js"></script>
+</html>

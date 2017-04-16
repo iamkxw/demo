@@ -1,0 +1,42 @@
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.5'
+}
+
+allprojects {
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+    }
+
+    buildscript {
+        repositories {
+            mavenLocal()
+            maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+            maven { url 'https://code.lds.org/nexus/content/groups/main-repo/' }
+        }
+        dependencies {
+            classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.1.RELEASE")
+        }
+    }
+
+    apply plugin: 'idea'
+    apply plugin: 'java'
+
+    compileJava {
+        options.encoding = 'UTF-8'
+        options.compilerArgs << "-Xlint:deprecation"
+    }
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenLocal()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://code.lds.org/nexus/content/groups/main-repo/' }
+    }
+
+    dependencies {
+        testCompile('junit:junit:4.12')
+        testCompile('org.testng:testng:6.10')
+    }
+}

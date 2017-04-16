@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>美颜社分销|产品详情</title>
+    <object th:replace="web/common/head/adminCommonHead"></object>
+</head>
+<body ng-app="app" ng-controller="mainCtrl">
+
+</body>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    $.b2b.variables.product = /*[[${product}]]*/ null;
+    /*]]>*/
+</script>
+<!--<script th:src="@{/statics/js/mobile/productDetail.js(b2bVersion=${b2bVersion})}" type="text/javascript"></script>-->
+<script src="/statics/js/mobile/productDetail.js"></script>
+</html>

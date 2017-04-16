@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="biz-service_main" target="1.8" />
+      <module name="biz-service_test" target="1.8" />
+      <module name="biz-web_main" target="1.8" />
+      <module name="biz-web_test" target="1.8" />
+      <module name="common-service_main" target="1.8" />
+      <module name="common-service_test" target="1.8" />
+      <module name="common_main" target="1.8" />
+      <module name="common_test" target="1.8" />
+      <module name="data_main" target="1.8" />
+      <module name="data_test" target="1.8" />
+      <module name="demo_main" target="1.8" />
+      <module name="demo_test" target="1.8" />
+      <module name="external-service_main" target="1.8" />
+      <module name="external-service_test" target="1.8" />
+      <module name="model_main" target="1.8" />
+      <module name="model_test" target="1.8" />
+      <module name="service_main" target="1.8" />
+      <module name="service_test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

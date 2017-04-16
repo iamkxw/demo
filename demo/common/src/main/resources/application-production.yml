@@ -1,0 +1,102 @@
+spring:
+    profiles: test
+
+jdbc:
+    url:
+    username:
+    password:
+
+host:
+    domain:
+
+#社区系统
+communityHost:
+    domain:
+    port:
+
+beauty:
+    order:
+        #订单过期时间，单位为分钟
+        orderExpireTime:
+    default:
+        #通用万能验证码
+        defaultSMSCode:
+    token:
+        #美颜社RES加密密钥
+        secret:
+
+alibaba:
+    alipay:
+        appId:
+        partner:
+        seller_id:
+        md5_token:
+        rsa_private_key:
+        alipay_gateway:
+        alipay_notify_url:
+        alipay_return_url:
+    aliyun:
+       #邮件推送服务
+       directMail:
+           regionId:
+           accessKeyId:
+           accessKeySecret:
+       #对象存储服务
+       objectStorageService:
+           bucketName:
+           endpoint:
+           accessKeyId:
+           accessKey:
+           expireTime:
+           imgHost:
+       #云短信服务
+       yunSms:
+           regionId:
+           accessKeyId:
+           accessKeySecret:
+           signName:
+           template:
+               verifyCommonTemplate:
+               quickRegisterVerifyTemplate:
+               customerOrderSuccessTemplate:
+               customerOrderVerifyTemplate:
+               customerOrderCancelTemplate:
+               customerOrderRefundApplyTemplate:
+               batchOrderSuccessTemplate:
+               adminRefundApplyNotification:
+
+weixin:
+    #微信服务号配置
+    service:
+        #原始id
+        originalId:
+        #微信公众号id
+        appId:
+        #微信公众号密钥
+        appSecret:
+        #微信公众号私钥
+        privateToken:
+        #加密模式下的密钥
+        EncodingAESKey:
+        #微信支付商户号
+        mchId:
+        #微信支付签名
+        paySignKey:
+        #微信支付回调接口
+        payNotifyUrl:
+        #微信支付证书路径
+        payCert:
+        #测试微信号
+        testOpenId:
+    #微信订阅号配置
+    subscribe:
+        #原始id
+        originalId:
+        #微信公众号id
+        appId:
+        #微信公众号密钥
+        appSecret:
+        #微信公众号私钥
+        privateToken:
+        #加密模式下的密钥
+        EncodingAESKey:

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.foxinmy:weixin4j-mp:1.7.3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.foxinmy/weixin4j-mp/1.7.3/ff015352e71b13f3e798672f141873c565f8a3d5/weixin4j-mp-1.7.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.foxinmy/weixin4j-mp/1.7.3/5191ba07cdc183a7e576bbe9e66e5588eca3ab51/weixin4j-mp-1.7.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

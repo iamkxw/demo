@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>美颜社分销平台&nbsp;|&nbsp;供应商登录页面</title>
+    <object th:replace="web/common/head/adminCommonHead"></object>
+    <script th:src="@{/statics/js/web/admin/angular/adminLogin.js(staticsVersion=${staticsVersion})}"></script>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        $.beauty.variables.accountType = /*[[${accountType}]]*/ null;
+        /*]]>*/
+    </script>
+</head>
+
+<body ng-app="webLogin" ng-controller="webLoginCtrl">
+<div id="notifier">
+    <object th:replace="web/common/webNotify"></object>
+</div>
+<div id="main" class="container">
+    <div class="row" style="margin-top: 4vh;">
+        <h1 style="text-align:center;color:#EB0070">美颜社分销平台供应商登录页面</h1>
+    </div>
+    <div class="login-panel panel panel-default" style="margin:15%  0 0 calc((100% - 250px)/2);width: 250px">
+        <div class="panel-body">
+            <form role="form">
+                <fieldset>
+                    <div class="form-group"><input style="font-size: 30px;height: auto"
+                                                   ng-model="vAccountInfo.phoneNumber" class="form-control"
+                                                   placeholder="请输入手机号"
+                                                   name="accountName" autofocus></div>
+                    <div class="form-group"><input style="font-size: 30px;height: auto"
+                                                   ng-model="vAccountInfo.password" class="form-control"
+                                                   placeholder="请输入密码"
+                                                   name="accountPassword" type="password"
+                                                   value=""></div>
+                    <a ng-click="login()" class="btn btn-lg btn-success btn-block"
+                       style="background-color:#EB0070;border-color:#EB0070">确认登录</a>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

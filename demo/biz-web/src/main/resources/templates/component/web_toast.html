@@ -1,0 +1,13 @@
+<!--提示toast-->
+<div ng-cloak>
+    <ok-toast ng-cloak is-shown="toast.isInfoShown" msg="toast.msg" time-out="toast.timeOut"></ok-toast>
+
+    <!--等待toast-->
+    <wait-toast ng-cloak is-shown="toast.isWaitShown" msg="toast.msg" time-out="toast.timeOut"></wait-toast>
+
+    <!--警告toast-->
+    <warn-toast ng-cloak is-shown="toast.isWarnShown" msg="toast.msg"></warn-toast>
+
+    <!--警告dialog-->
+    <warn-dialog ng-cloak is-shown="toast.isDialogShown" msg="toast.msg"></warn-dialog>
+</div>

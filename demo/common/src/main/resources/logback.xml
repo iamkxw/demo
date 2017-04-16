@@ -1,0 +1,354 @@
+<configuration scan="true" scanPeriod="120 seconds" debug="false">
+
+    <property scope="context" name="APP_NAME" value="demo"/>
+    <property scope="context" name="LOG_PATH" value="${user.home}/${APP_NAME}/logs"/>
+    <property scope="context" name="CUSTOMIZED_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%X{sessionId}] [%X{localHost}] [account:%X{currentAccount}] [%highlight(%level)] [%logger{0}] [%file:%line] -- %msg%n%ex{full}"/>
+
+    <!--hibernate日志分析专用-->
+    <!--<logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>-->
+    <!--<logger name="org.hibernate.type.descriptor.sql.BasicExtractor" level="DEBUG"/>-->
+    <!--<logger name="org.hibernate.SQL" level="DEBUG"/>-->
+    <!--<logger name="org.hibernate.engine.QueryParameters" level="DEBUG"/>-->
+    <!--<logger name="org.hibernate.engine.query.HQLQueryPlan" level="DEBUG"/>-->
+
+    <!--基础日志: 根日志-->
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <!--根日志控制台输出-->
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <appender name="consoleAllAppenderFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--根日志文件输出-->
+        <file>${LOG_PATH}/${APP_NAME}_console.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_console.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <appender name="consoleWarnAppenderFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--根日志警告级别文件输出-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <file>${LOG_PATH}/${APP_NAME}_warn.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_warn.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <appender name="consoleErrorAppenderFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--根日志错误级别文件输出-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <file>${LOG_PATH}/${APP_NAME}_error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_error.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>20</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <!--基础日志: 根日志配置-->
+    <root level="info">
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="consoleAllAppenderFile"/>
+        <appender-ref ref="consoleWarnAppenderFile"/>
+    </root>
+    <!--基础日志: 系统运行日志-->
+    <appender name="sysLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/sys.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/sys.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="sysLogger" level="info" additivity="true">
+        <appender-ref ref="sysLoggerAppender"/>
+    </logger>
+    <!--基础日志: 测试日志-->
+    <appender name="testLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}_test.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_test.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="testLogger" level="info" additivity="true">
+        <appender-ref ref="testLoggerAppender"/>
+    </logger>
+    <!--基础日志: 访问请求日志-->
+    <appender name="requestLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}_request.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_request.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="requestLogger" level="info" additivity="true">
+        <appender-ref ref="requestLoggerAppender"/>
+    </logger>
+    <!--基础日志: 异常日志-->
+    <appender name="exceptionLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}_exception.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_exception.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="exceptionLogger" level="info" additivity="true">
+        <appender-ref ref="exceptionLoggerAppender"/>
+    </logger>
+
+    <!--系统组件日志: SpringSecurity-->
+    <appender name="springSecurityLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}_component_spring_security.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_component_spring_security.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="org.springframework.security" level="info" additivity="true">
+        <appender-ref ref="springSecurityLoggerAppender"/>
+    </logger>
+
+    <!--内部日志: 业务根-->
+    <appender name="runLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}_run.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_run.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="runLogger" level="info" additivity="true">
+        <appender-ref ref="runLoggerAppender"/>
+    </logger>
+    <!--内部日志: 支付-->
+    <appender name="payLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}_pay.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_pay.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="payLogger" level="info" additivity="true">
+        <appender-ref ref="payLoggerAppender"/>
+    </logger>
+    <!--内部日志: 短信通知-->
+    <appender name="smsLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}_sms.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_sms.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="smsLogger" level="info" additivity="true">
+        <appender-ref ref="smsLoggerAppender"/>
+    </logger>
+    <!--内部日志: 微信-->
+    <appender name="weixinLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}_weixin.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_weixin.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="weixinLogger" level="info" additivity="true">
+        <appender-ref ref="weixinLoggerAppender"/>
+    </logger>
+    <!--内部日志: 订单-->
+    <appender name="orderLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}_order.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_order.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="orderLogger" level="info" additivity="true">
+        <appender-ref ref="orderLoggerAppender"/>
+    </logger>
+    <!--内部日志: 定时任务-->
+    <appender name="taskLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}_task.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_task.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="taskLogger" level="info" additivity="true">
+        <appender-ref ref="taskLoggerAppender"/>
+    </logger>
+    <!--内部日志: 工具类-->
+    <appender name="utilLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}_util.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_util.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="utilLogger" level="info" additivity="true">
+        <appender-ref ref="utilLoggerAppender"/>
+    </logger>
+    <!--内部日志: 安全验证-->
+    <appender name="authenticationLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}_authentication.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_authentication.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="authenticationLogger" level="info" additivity="true">
+        <appender-ref ref="authenticationLoggerAppender"/>
+    </logger>
+
+    <!--外围服务日志: 支付宝-->
+    <appender name="externalServiceAlipayLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}_external_service_alipay.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_external_service_alipay.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="externalServiceAlipayLogger" level="info" additivity="true">
+        <appender-ref ref="externalServiceAlipayLoggerAppender"/>
+    </logger>
+    <!--外围服务日志: 微信支付-->
+    <appender name="externalServiceWeixinpayLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}_external_service_weixinpay.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_external_service_weixinpay.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="externalServiceWeixinpayLogger" level="info" additivity="true">
+        <appender-ref ref="externalServiceWeixinpayLoggerAppender"/>
+    </logger>
+    <!--外围服务日志: 阿里云-->
+    <appender name="externalServiceAliyunLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}_external_service_aliyun.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_external_service_aliyun.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="externalServiceAliyunLogger" level="info" additivity="true">
+        <appender-ref ref="externalServiceAliyunLoggerAppender"/>
+    </logger>
+    <!--外围服务日志: 微信-->
+    <appender name="externalServiceWeixinLoggerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}_external_service_weixin.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_NAME}_external_service_weixin.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>18</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>${CUSTOMIZED_PATTERN}</Pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>false</immediateFlush>
+        </encoder>
+    </appender>
+    <logger name="externalServiceWeixinLogger" level="info" additivity="true">
+        <appender-ref ref="externalServiceWeixinLoggerAppender"/>
+    </logger>
+</configuration>
