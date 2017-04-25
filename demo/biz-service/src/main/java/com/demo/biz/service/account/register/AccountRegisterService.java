@@ -2,7 +2,9 @@ package com.demo.biz.service.account.register;
 
 import com.demo.common.exception.AppException;
 import com.demo.data.domain.Account;
+import com.demo.data.service.AccountService;
 import com.demo.model.view.VUser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,6 +15,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class AccountRegisterService {
+
+    @Autowired
+    AccountService accountService;
 
     public Account register(VUser user) {
         return null;

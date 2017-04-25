@@ -7,16 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- * Created by Sawyer on 2017/1/17.
- */
 @Controller
 @RequestMapping(value = "/page/auth")
 public class AuthPageController extends AppController {
 
     /**
      * 登录
-     * Created by Sawyer on 2017/1/23.
      */
     @GetMapping(value = "/login")
     public String index() {
@@ -28,7 +24,6 @@ public class AuthPageController extends AppController {
 
     /**
      * 登录失败
-     * Created by Sawyer on 2017/1/23.
      */
     @GetMapping("/login/error")
     public String loginError(Model model) {
@@ -38,7 +33,6 @@ public class AuthPageController extends AppController {
 
     /**
      * 注册
-     * Created by Sawyer on 2017/1/23.
      */
     @GetMapping("/registry")
     public String registry() {

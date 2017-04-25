@@ -1,4 +1,4 @@
-package com.demo.biz.web.security;
+package com.demo.biz.web.config.security;
 
 import com.demo.biz.web.filter.APIRequestFilter;
 import com.demo.biz.web.filter.RequestLogFilter;
